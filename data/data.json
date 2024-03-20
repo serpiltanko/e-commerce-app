@@ -1,0 +1,79 @@
+{
+    "products": [
+        {
+          "id": 1,
+          "name": "iPhone 13 Pro",
+          "image": "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/790181760/790181760_0_MC/9ad71e93ee4b4cea98421fae3ef08666.jpg",
+          "price": 999.99,
+          "description": "Apple'ın son model akıllı telefonu.",
+          "rating": 4.7,
+          "category_id": 1
+        },
+        {
+          "id": 2,
+          "name": "Samsung 4K Smart TV",
+          "image": "https://cdn.akakce.com/z/samsung/samsung-ue55au7000-55-crystal-4k-ultra-hd-smart-led-tv-3.jpg",
+          "price": 1499.99,
+          "description": "Ultra HD görüntü kalitesi sunan akıllı televizyon.",
+          "rating": 4.6,
+          "category_id": 1
+        },
+        {
+          "id": 3,
+          "name": "Adidas Yeezy Boost 350",
+          "image": "https://banner2.cleanpng.com/20180925/zo/kisspng-adidas-yeezy-boost-35-v2-beluga-sneaker-adidas-yeezy-boost-35-v2-beluga-2-grails-sf-5baaf401af6895.4975122415379302417185.jpg",
+          "price": 219.99,
+          "description": "Kült haline gelmiş spor ayakkabı.",
+          "rating": 4.9,
+          "category_id": 2
+        },
+        {
+          "id": 4,
+          "name": "Bosch Çamaşır Makinesi",
+          "image": "https://cdn.akakce.com/z/bosch/bosch-wau24t91tr-1200-devir-9-kg.jpg",
+          "price": 899.99,
+          "description": "Yüksek verimlilik ve dayanıklılık sunan çamaşır makinesi.",
+          "rating": 4.5,
+          "category_id": 3
+        },
+        {
+          "id": 5,
+          "name": "PlayStation 5",
+          "image": "https://productimages.hepsiburada.net/s/86/375-375/110000028286524.jpg",
+          "price": 499.99,
+          "description": "Sony'nin son nesil oyun konsolu.",
+          "rating": 4.8,
+          "category_id": 1
+        },
+        {
+          "id": 6,
+          "name": "Levi's 501 Original Fit Jeans",
+          "image": "https://i.ebayimg.com/images/g/KREAAOSwV5xkRrO5/s-l500.jpg",
+          "price": 59.99,
+          "description": "Klasik ve rahat kesim kot pantolon.",
+          "rating": 4.4,
+          "category_id": 2
+        },
+        {
+          "id": 7,
+          "name": "Dyson Cyclone V10 Absolute",
+          "image": "https://cdn.cimri.io/image/280x280/dyson-cyclone-v10-extra-dikey-sarjli-supurge_661227183.jpg",
+          "price": 499.99,
+          "description": "Yüksek performanslı kablosuz süpürge.",
+          "rating": 4.7,
+          "category_id": 3
+        },
+        {
+          "id": 8,
+          "name": "GoPro HERO9 Black",
+          "image": "https://cdn.akakce.com/z/gopro/gopro-hero9-black-5k.jpg",
+          "price": 449.99,
+          "description": "Profesyonel kalitede 5K video kaydı yapabilen aksiyon kamerası.",
+          "rating": 4.6,
+          "category_id": 1
+        }
+   
+      ]
+  }
+  
+
