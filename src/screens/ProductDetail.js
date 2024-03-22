@@ -4,8 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const ProductDetail = ({ route }) => {
   const navigation = useNavigation();
-  const { name, image, description, price } = route.params;
 
+  const [cartItems, setCartItems] = useState([]);
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+    navigation.navigate("MyCart", { image, name, price });
+  };
+  
+  const { name, image, description, price } = route.params;
   console.log(route.params);
   return (
     <View style={styles.container}>
@@ -22,12 +28,7 @@ const ProductDetail = ({ route }) => {
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{price}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={() => {
-            navigation.navigate("MyCart", {image, name, description, price});
-          }}
-        >
+        <TouchableOpacity style={styles.buttonContainer} onPress={addToCart}>
           <Text style={styles.buttonText}>Sepete Ekle</Text>
         </TouchableOpacity>
       </View>
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginTop: 5,
-    color: "#9AC5E5",
+    color: "#00A4CC",
   },
   descriptionContainer: {
     borderWidth: 1,
@@ -81,7 +82,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 18,
   },
-
   bottomContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -90,21 +90,21 @@ const styles = StyleSheet.create({
   },
   priceContainer: {
     borderWidth: 1,
-    borderColor: "#9AC5E5",
+    borderColor: "#00A4CC",
     borderRadius: 15,
     padding: 16,
   },
   price: {
-    color: "#9AC5E5",
+    color: "#00A4CC",
     fontWeight: "800",
     fontSize: 18,
   },
   buttonContainer: {
     borderWidth: 1,
-    borderColor: "#9AC5E5",
+    borderColor: "#00A4CC",
     borderRadius: 15,
     padding: 16,
-    backgroundColor: "#9AC5E5",
+    backgroundColor: "#00A4CC",
   },
   buttonText: {
     fontWeight: "800",
