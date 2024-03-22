@@ -18,7 +18,6 @@ const ProfileScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>E-mail: {auth.currentUser?.email} </Text>
-
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleSignOut}>
           <Text style={styles.buttonText}>Çıkış Yap</Text>
@@ -37,19 +36,18 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "black",
-    fontSize:18,
-    fontWeight:"800",
+    fontSize: 18,
+    fontWeight: "800",
     textAlign: "center",
     justifyContent: "center",
   },
-
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
     margin: 15,
   },
   button: {
-    backgroundColor: "#0782F9",
+    backgroundColor: "#00A4CC",
     alignItems: "center",
     borderRadius: 10,
     width: "60%",
