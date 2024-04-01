@@ -6,7 +6,7 @@ import ProductCardList from "../components/ProductCardList";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView>    
       <SearchBar />
       <ProductCardList />
     </SafeAreaView>

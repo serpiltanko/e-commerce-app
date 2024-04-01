@@ -9,6 +9,7 @@ const ProductCardList = () => {
   const products = PRODUCT.products;
   const navigation =useNavigation();
 
+
   function renderProduct(itemData) {
     console.log(itemData.item.name);
     return (

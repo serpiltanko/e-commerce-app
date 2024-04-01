@@ -6,14 +6,15 @@ import { useNavigation } from "@react-navigation/native";
 const ProductCard = ({ name, productPrice, productImage, productDescription  }) => {
 const navigation =useNavigation();
 
+
+
   return (
     <TouchableOpacity style={styles.container}
      onPress={()=>navigation.navigate("Detail", {
       name: name,
       price: productPrice,
       image: productImage,
-      description: productDescription
-      
+      description: productDescription      
     })}>
       <Image source={{ uri: productImage }} style={styles.image} />
       <Text style={styles.name}>{name}</Text>

@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Routes from './src/routes/Routes';
+import { CartProvider } from './src/screens/CartContext';
 
 
 export default function App() {
 
   return (
-    <SafeAreaProvider>
+    <CartProvider>
       <Routes/>
-    </SafeAreaProvider>
+    </CartProvider>
   );
 }
 
