@@ -1,17 +1,20 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useCart } from "./CartContext";
+
 
 const ProductDetail = ({ route }) => {
   const navigation = useNavigation();
+  const { addToCart } = useCart();
 
-  const [cartItems, setCartItems] = useState([]);
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-    navigation.navigate("MyCart", { image, name, price });
+  const { name, price, image, description } = route.params;
+
+  const handleAddToCart = () => {
+    navigation.navigate("MyCart")
+    addToCart({ name, price, image, description });
   };
-  
-  const { name, image, description, price } = route.params;
+
   console.log(route.params);
   return (
     <View style={styles.container}>
@@ -28,7 +31,7 @@ const ProductDetail = ({ route }) => {
         <View style={styles.priceContainer}>
           <Text style={styles.price}>{price}</Text>
         </View>
-        <TouchableOpacity style={styles.buttonContainer} onPress={addToCart}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={handleAddToCart}>
           <Text style={styles.buttonText}>Sepete Ekle</Text>
         </TouchableOpacity>
       </View>
