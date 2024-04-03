@@ -1,52 +1,87 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { Image, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useCart } from "./CartContext";
+import { AntDesign } from "@expo/vector-icons";
 
-const MyCartScreen = ({route}) => {
-  const { cartItems } = useCart();
+const MyCartScreen = () => {
+  const { cartItems, emptyCart } = useCart();
 
   const navigation = useNavigation();
+
+  const handleBuy = () => {
+
+    emptyCart();
+    alert("Satın alma işleminiz başarıyla tamamlanmıştır.");
+    navigation.navigate("Home");
+  };
 
   return (
     <View style={styles.container}>
       <View>
-        <Text>Sepetinizdeki Ürünler:</Text>
-        {cartItems.map((item, index) => (
-          <View key={index} style={styles.productContainer}>
-            <View style={styles.imageContainer}>
-              <Image source={{ uri: item.image }} style={styles.image} />
-            </View>
-            <View style={styles.textContainer}>
-              <View style={styles.nameContainer}>
-                <Text style={styles.name}>{item.name}</Text>
-              </View>
-              <View style={styles.priceContainer}>
-                <Text style={styles.price}>{item.price}</Text>
-              </View>
-            </View>
+        {cartItems.length === 0 ? (
+          <View style={styles.emptyCartContainer}>
+            <Text style={styles.emptyCartText}>
+              Sepetinizde Ürün Bulunmamaktadır.
+            </Text>
+            <AntDesign
+              style={styles.emptyCartImage}
+              name="shoppingcart"
+              size={100}
+              color="#00A4CC"
+            />
           </View>
-        ))}
+        ) : (
+          cartItems.map((item, index) => (
+            <View key={index} style={styles.productContainer}>
+              <View style={styles.imageContainer}>
+                <Image source={{ uri: item.image }} style={styles.image} />
+              </View>
+              <View style={styles.textContainer}>
+                <View style={styles.nameContainer}>
+                  <Text style={styles.name}>{item.name}</Text>
+                </View>
+                <View style={styles.priceContainer}>
+                  <Text style={styles.price}>{item.price}</Text>
+                </View>
+              </View>
+            </View>
+          ))
+        )}
       </View>
-
-     
 
       {/* buttonArea */}
+      <View>
+        {cartItems.length === 0 ? (
+          <View>
+            <Text></Text>
+          </View>
+        ) : (
+          <View>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText} onPress={handleBuy}>
+                  Satın Al
+                </Text>
+              </TouchableOpacity>
+            </View>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Satın Al</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.shoppingButtonContainer}>
-        <TouchableOpacity
-          style={styles.shoppingButton}
-          onPress={() => {
-            navigation.navigate("Home");
-          }}
-        >
-          <Text style={styles.shoppingButtonText}>Alışverişe Devam Et</Text>
-        </TouchableOpacity>
+           
+
+            <View style={styles.shoppingButtonContainer}>
+              <TouchableOpacity
+                style={styles.shoppingButton}
+                onPress={() => {
+                  navigation.navigate("Home");
+                }}
+              >
+                <Text style={styles.shoppingButtonText}>
+                  Alışverişe Devam Et
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
       </View>
     </View>
   );
@@ -57,6 +92,21 @@ export default MyCartScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+
+  emptyCartContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 170,
+    paddingHorizontal: 16,
+  },
+  emptyCartText: {
+    color: "grey",
+    fontSize: 20,
+    fontWeight: "500",
+  },
+  emptyCartImage: {
+    marginTop: 50,
   },
   productContainer: {
     flexDirection: "row",
@@ -99,18 +149,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {
-    width: "90%",
+    width: "50%",
     borderWidth: 1,
     borderColor: "#00A4CC",
     borderRadius: 15,
     backgroundColor: "#00A4CC",
-    padding: 15,
+    padding: 10,
+    marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
   },
   buttonText: {
     fontWeight: "800",
-    fontSize: 18,
+    fontSize: 16,
     color: "white",
   },
   shoppingButtonContainer: {
@@ -124,13 +175,13 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     borderRadius: 15,
     backgroundColor: "grey",
-    padding: 15,
+    padding: 10,
     alignItems: "center",
     justifyContent: "center",
   },
   shoppingButtonText: {
     fontWeight: "700",
-    fontSize: 16,
+    fontSize: 15,
     color: "white",
   },
 });

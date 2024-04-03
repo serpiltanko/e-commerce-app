@@ -1,5 +1,3 @@
-// CartContext.js
-
 import React, { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
@@ -13,12 +11,17 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
+   
   };
 
-  // addToCart fonksiyonunu tanımla ve export et
+  const emptyCart = () => {
+    setCartItems([]);
+  };
+
   const contextValue = {
     cartItems,
     addToCart,
+    emptyCart,
   };
 
   return (
@@ -28,4 +31,4 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export default CartContext; // CartContext'i export et
+export default CartContext; 
